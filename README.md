@@ -213,7 +213,7 @@ The Admin Dashboard and Web Reader utilize a custom-curated, harmonic styling sy
 Given more time, I would implement the following enhancements:
 
 - **Rich Text Editor:** Integrate TipTap or MDX for WYSIWYG article composition with formatting controls, embedded media, and live preview.
-- **AI Co-Pilot & Auto-Moderation:** Integrate an AI personal assistant to help draft, translate, and optimize articles, while automatically flagging profanity, hate speech, or illegal content before publishing.
+- **Autonomous AI Publisher & Moderator:** Implement an autonomous AI agent (using frameworks like LangChain or CrewAI) that periodically crawls the web for breaking news, automatically drafts, translates, and formats new articles, performs automated content safety checks (moderating profanity or illegal topics), and publishes them directly via the platform's API to make the site a self-sustaining news hub.
 - **Image & Media Upload:** Add an Object Storage integration (e.g., Cloudflare R2 or AWS S3) for article cover images and inline media assets.
 - **Pagination & Sorting:** Implement cursor-based pagination for the articles API and sortable columns in the admin dashboard table.
 - **Redis Caching Layer:** Cache frequently accessed public articles to reduce database load and improve response times for readers.
