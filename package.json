@@ -1,0 +1,22 @@
+{
+  "name": "article-platform",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npx bun --filter \"*\" dev",
+    "build": "npx bun --filter \"*\" build",
+    "typecheck": "npx bun --filter \"*\" typecheck",
+    "test": "npx bun test",
+    "db:seed": "npx bun --filter @article-platform/api db:seed"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@types/node": "^25.9.3",
+    "bun-types": "^1.3.14",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

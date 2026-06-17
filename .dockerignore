@@ -1,0 +1,40 @@
+# Dependency folders
+node_modules/
+**/node_modules/
+
+# Local databases and journals
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+sqlite.db
+sqlite_test.db
+
+# Build artifacts
+dist/
+**/dist/
+.tsbuildinfo
+*.tsbuildinfo
+
+# IDE and environment files
+.env
+.env.local
+.env.test
+.env.*.local
+.vscode/
+.idea/
+.biome/
+
+# Version control
+.git/
+.github/
+.gitignore
+
+# Docker config and documentation
+Dockerfile
+docker-compose.yml
+.dockerignore
+README.md
+task.md
+implementation_plan.md
+walkthrough.md

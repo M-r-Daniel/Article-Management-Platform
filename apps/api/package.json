@@ -1,0 +1,26 @@
+{
+  "name": "@article-platform/api",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "npx bun --hot src/index.ts",
+    "start": "bun src/index.ts",
+    "build": "echo 'No build step needed for Hono under Bun' && exit 0",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "npx bun src/db/migrate.ts",
+    "db:push": "npx bun src/db/migrate.ts",
+    "db:seed": "npx bun src/db/seed.ts"
+  },
+  "dependencies": {
+    "@article-platform/shared": "workspace:*",
+    "@hono/zod-validator": "^0.2.2",
+    "drizzle-orm": "^0.32.0",
+    "hono": "^4.5.1",
+    "jose": "^5.6.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.23.0"
+  }
+}

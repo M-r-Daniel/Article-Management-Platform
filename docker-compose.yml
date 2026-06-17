@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # Hono REST API + SQLite backend service
+  api:
+    build:
+      context: .
+      target: api
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - DATABASE_URL=/app/data/sqlite.db
+      - JWT_SECRET=supersecretjwtkeyforarticlemanagement123
+      - CORS_ORIGIN=http://localhost,http://localhost:80,http://localhost:3000
+    volumes:
+      - db_data:/app/data
+    healthcheck:
+      # Use Bun's native fetch API for health checking to avoid curl/wget dependencies in alpine
+      test: ["CMD", "bun", "-e", "fetch('http://localhost:3000/health').then(res => res.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  # Nginx Gateway reverse proxy and static asset server
+  gateway:
+    build:
+      context: .
+      target: gateway
+    ports:
+      - "80:80"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  # Named volume to persist the SQLite database between service restarts
+  db_data:
+
